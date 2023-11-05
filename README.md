@@ -1,27 +1,7 @@
-# AngularLovePdf
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- https://github.com/mozilla/pdf.js
+- https://github.com/Hopding/pdf-lib
+- https://github.com/foliojs/pdfkit
+- https://github.com/bpampuch/pdfmake
+- https://medium.com/nerd-for-tech/dynamically-create-and-merge-pdfs-in-angular-using-jspdf-and-pdf-lib-aa82ae35f1e3
+- https://stackoverflow.com/questions/37927657/img-unsafe-value-used-in-a-resource-url-context
+- https://gist.github.com/fcingolani/3300351
