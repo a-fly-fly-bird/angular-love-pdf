@@ -1,8 +1,26 @@
 import { PdfMergeService } from './shared/service/pdf-merge.service';
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { NzUploadChangeParam } from 'ng-zorro-antd/upload';
+import { NzUploadChangeParam, NzUploadFile } from 'ng-zorro-antd/upload';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Pipe, PipeTransform } from '@angular/core';
+
+type Props = {
+  name: string;
+} & (
+  | {
+      gender: 'male';
+      salary: number;
+    }
+  | {
+      gender: 'female';
+      weight: number;
+    }
+);
+
+type ApiResponse<T> =
+  | { status: 'success'; data: T; timestamp: Date }
+  | { status: 'error'; message: string; timestamp: Date };
 
 @Component({
   selector: 'app-root',
@@ -11,35 +29,45 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
   pdf: any;
+  files = [];
+
+  helloTs() {
+    let response1: ApiResponse<number> = {
+      status: 'success',
+      data: 100,
+      timestamp: new Date(),
+    };
+    let response2: ApiResponse<number> = {
+      status: 'error',
+      message: 'error la',
+      timestamp: new Date(),
+    };
+  }
 
   constructor(
-    private msg: NzMessageService,
-    private pdfMergeService: PdfMergeService,
+    // private pdfMergeService: PdfMergeService,
     private sanitizer: DomSanitizer,
   ) {}
 
-  ngOnInit(): void {
-    // this.pdfMergeService.pdfObserverable$.subscribe(
-    //   (x) => {
-    //     let file = new Blob([x], { type: 'application/pdf' });
-    //     var fileURL = URL.createObjectURL(file);
-    //     this.pdf = this.sanitizer.bypassSecurityTrustResourceUrl(fileURL);
-    //   }
-    // )
-    this.pdfMergeService.pdf2$.subscribe((x) => {
-      this.pdf = this.sanitizer.bypassSecurityTrustResourceUrl(x);
-    });
+  getFile() {
+    let inputElement = document.getElementById('input');
+    if (inputElement) {
+      inputElement.addEventListener('change', this.handleFiles, false);
+    }
+  }
+  handleFiles() {
+    const fileList = this.files; /* 现在你可以处理文件列表 */
+    console.log(fileList);
+    console.log(URL.createObjectURL(this.files['0']));
+    this.pdf = URL.createObjectURL(this.files['0']);
+    console.log(this.pdf);
   }
 
-  handleChange({ file, fileList }: NzUploadChangeParam): void {
-    const status = file.status;
-    if (status === 'uploading') {
-      console.log(file, fileList);
-    }
-    if (status === 'done') {
-      this.msg.success(`${file.name} file uploaded successfully.`);
-    } else if (status === 'error') {
-      this.msg.error(`${file.name} file upload failed.`);
-    }
+  ngOnInit(): void {
+    // this.pdfMergeService.pdf2$.subscribe((x) => {
+    //   this.pdf = this.sanitizer.bypassSecurityTrustResourceUrl(x);
+    //   this.getFile();
+    // });
+    this.getFile();
   }
 }
