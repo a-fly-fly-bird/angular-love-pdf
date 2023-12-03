@@ -1,0 +1,7 @@
+<input type="file" (change)="onFileSelected($event)" />
+<input type="number" [(ngModel)]="startPage" placeholder="Start Page" min="1" />
+<input type="number" [(ngModel)]="endPage" placeholder="End Page" />
+<button (click)="splitPDF()">Split PDF</button>
+<a *ngIf="splitPdfUrl" [href]="splitPdfUrl" download="split_document.pdf"
+  >Download Split PDF</a
+>

@@ -1,21 +1,27 @@
 <nz-layout>
   <nz-header>
-    <div class="logo"></div>
+    <a class="logo" routerLink="./">
+      <span
+        nz-icon
+        [nzType]="'check-circle'"
+        [nzTheme]="'twotone'"
+        [nzTwotoneColor]="'#52c41a'"
+      ></span>
+    </a>
+
     <ul nz-menu nzTheme="dark" nzMode="horizontal">
-      <li nz-menu-item>nav 1</li>
-      <li nz-menu-item>nav 2</li>
-      <li nz-menu-item>nav 3</li>
+      <li nz-menu-item routerLink="./">Home</li>
+      <li nz-menu-item routerLink="./kits/merge">Merge</li>
+      <li nz-menu-item routerLink="./kits/split">Split</li>
     </ul>
   </nz-header>
   <nz-content>
     <nz-breadcrumb>
       <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-      <nz-breadcrumb-item>List</nz-breadcrumb-item>
-      <nz-breadcrumb-item>App</nz-breadcrumb-item>
     </nz-breadcrumb>
   </nz-content>
 
   <router-outlet> </router-outlet>
 
-  <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+  <nz-footer>©2022 Implement By Terry & GPT</nz-footer>
 </nz-layout>

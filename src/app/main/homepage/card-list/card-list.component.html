@@ -10,25 +10,25 @@
 </article>
 <div class="flex-container">
   <ng-container>
-    <nz-card class="card" nzTitle="Merge Pdf" [nzExtra]="extraTemplate">
+    <nz-card class="card" nzTitle="Merge Pdf" [nzExtra]="extraMergeTemplate">
       <p>
         Combine PDFs in the order you want with the easiest PDF merger
         available.
       </p>
     </nz-card>
-    <ng-template #extraTemplate>
+    <ng-template #extraMergeTemplate>
       <a routerLink="./kits/merge">More</a>
     </ng-template>
   </ng-container>
 
   <ng-container>
-    <nz-card class="card" nzTitle="Split Pdf" [nzExtra]="extraTemplate">
+    <nz-card class="card" nzTitle="Split Pdf" [nzExtra]="extraSplitTemplate">
       <p>
         Separate one page or a whole set for easy conversion into independent
         PDF files.
       </p>
     </nz-card>
-    <ng-template #extraTemplate>
+    <ng-template #extraSplitTemplate>
       <a routerLink="./kits/split">More</a>
     </ng-template>
   </ng-container>

@@ -16,3 +16,5 @@
 - https://developer.mozilla.org/zh-CN/docs/Web/API/File_API/Using_files_from_web_applications
 - https://developer.mozilla.org/zh-CN/docs/Web/API/File
 - https://medium.com/@paulisache/how-to-display-a-pdf-in-an-iframe-using-filereader-api-5b0ed9239402
+
+https://github.com/Hopding/pdf-lib/issues/252
