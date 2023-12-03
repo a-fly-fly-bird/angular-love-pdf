@@ -15,7 +15,13 @@
     (change)="onFileSelected($event)"
   />
   <nz-divider></nz-divider>
-  <div *ngIf="pdfSrc">
-    <iframe class="pdf_viewer" [src]="pdfSrc | safe"></iframe>
+  <button (click)="mergePDFs()">Merge PDFs</button>
+  <nz-divider></nz-divider>
+  <div *ngIf="mergedPdfUrl">
+    <a *ngIf="mergedPdfUrl" [href]="mergedPdfUrl" download="merged_document.pdf"
+      >Download Merged PDF</a
+    >
+    <h1>result</h1>
+    <iframe class="pdf_viewer" [src]="mergedPdfUrl | safe"></iframe>
   </div>
 </div>

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { SafePipe } from 'src/app/shared/pipe/safe.pipe';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { mergePDFDocuments } from 'src/app/shared/utils/pdf-merge';
+import { PDFDocument } from 'pdf-lib';
 
 @Component({
   selector: 'app-merge',
@@ -12,17 +14,39 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
   styleUrls: ['./merge.component.scss'],
 })
 export class MergeComponent {
-  pdfSrc: any;
+  private pdfFiles: File[] = [];
+  public mergedPdfUrl: string | null = null;
 
-  onFileSelected(event: Event) {
+  constructor() {}
+
+  onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: ProgressEvent<FileReader>) => {
-        this.pdfSrc = e.target?.result;
-      };
-      reader.readAsDataURL(file);
+    if (input.files) {
+      this.pdfFiles = Array.from(input.files);
     }
+  }
+
+  async mergePDFs(): Promise<void> {
+    if (this.pdfFiles.length < 2) {
+      alert('Please select at least two PDF files to merge.');
+      return;
+    }
+
+    const mergedPdf = await PDFDocument.create();
+
+    for (const file of this.pdfFiles) {
+      const fileData = await file.arrayBuffer();
+      const pdfDoc = await PDFDocument.load(fileData);
+      const copiedPages = await mergedPdf.copyPages(
+        pdfDoc,
+        pdfDoc.getPageIndices(),
+      );
+      copiedPages.forEach((page) => mergedPdf.addPage(page));
+    }
+
+    const mergedPdfBytes = await mergedPdf.save();
+    this.mergedPdfUrl = URL.createObjectURL(
+      new Blob([mergedPdfBytes], { type: 'application/pdf' }),
+    );
   }
 }
