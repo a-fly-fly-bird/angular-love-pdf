@@ -5,8 +5,9 @@ import { AppComponent } from './app.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: AppComponent,
+    pathMatch: 'prefix',
+    loadChildren: () =>
+      import('./main/homepage/route').then((mod) => mod.HomepageROUTES),
   },
   {
     path: '**',

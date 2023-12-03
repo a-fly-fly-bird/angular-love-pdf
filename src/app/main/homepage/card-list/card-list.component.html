@@ -1,0 +1,35 @@
+<article nz-typography>
+  <h1 nz-typography class="title">
+    Every tool you need to work with PDFs in one place
+  </h1>
+  <p class="paragraph-pad" nz-typography>
+    Every tool you need to use PDFs, at your fingertips. All are 100% FREE and
+    easy to use! Merge, split, compress, convert, rotate, unlock and watermark
+    PDFs with just a few clicks.
+  </p>
+</article>
+<div class="flex-container">
+  <ng-container>
+    <nz-card class="card" nzTitle="Merge Pdf" [nzExtra]="extraTemplate">
+      <p>
+        Combine PDFs in the order you want with the easiest PDF merger
+        available.
+      </p>
+    </nz-card>
+    <ng-template #extraTemplate>
+      <a routerLink="./kits/merge">More</a>
+    </ng-template>
+  </ng-container>
+
+  <ng-container>
+    <nz-card class="card" nzTitle="Split Pdf" [nzExtra]="extraTemplate">
+      <p>
+        Separate one page or a whole set for easy conversion into independent
+        PDF files.
+      </p>
+    </nz-card>
+    <ng-template #extraTemplate>
+      <a routerLink="./kits/split">More</a>
+    </ng-template>
+  </ng-container>
+</div>

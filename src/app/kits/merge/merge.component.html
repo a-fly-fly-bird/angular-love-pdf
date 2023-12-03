@@ -1,0 +1,21 @@
+<article nz-typography>
+  <h1 nz-typography class="title">Merge PDF files</h1>
+  <p class="paragraph-pad" nz-typography>
+    Combine PDFs in the order you want with the easiest PDF merger available.
+  </p>
+</article>
+
+<div class="upload-area">
+  <h1>upload</h1>
+  <input
+    type="file"
+    id="input"
+    multiple
+    accept=".pdf"
+    (change)="onFileSelected($event)"
+  />
+  <nz-divider></nz-divider>
+  <div *ngIf="pdfSrc">
+    <iframe class="pdf_viewer" [src]="pdfSrc | safe"></iframe>
+  </div>
+</div>

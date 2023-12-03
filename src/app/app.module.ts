@@ -10,15 +10,6 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzUploadModule } from 'ng-zorro-antd/upload';
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzDividerModule } from 'ng-zorro-antd/divider';
-
-import {
-  ApmErrorHandler,
-  ApmModule,
-  ApmService,
-} from '@elastic/apm-rum-angular';
 
 registerLocaleData(en);
 
@@ -30,33 +21,10 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzUploadModule,
-    NzLayoutModule,
-    NzDividerModule,
-    ApmModule,
   ],
-  providers: [
-    ApmService,
-    { provide: NZ_I18N, useValue: en_US },
-    {
-      provide: ErrorHandler,
-      useClass: ApmErrorHandler,
-    },
-  ],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(service: ApmService) {
-    // Agent API is exposed through this apm instance
-    const apm = service.init({
-      serviceName: 'hello-world',
-      serverUrl: 'http://localhost:8200',
-      environment: 'dev',
-    });
-
-    apm.setUserContext({
-      username: 'foo',
-      id: 'bar',
-    });
-  }
+  constructor() {}
 }
