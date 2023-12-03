@@ -5,3 +5,8 @@
 <a *ngIf="splitPdfUrl" [href]="splitPdfUrl" download="split_document.pdf"
   >Download Split PDF</a
 >
+
+<div *ngIf="splitPdfUrl">
+  <h1>result</h1>
+  <iframe class="pdf_viewer" [src]="splitPdfUrl | safe"></iframe>
+</div>

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PDFDocument } from 'pdf-lib';
 import { FormsModule } from '@angular/forms';
+import { SafePipe } from 'src/app/shared/pipe/safe.pipe';
 
 @Component({
   selector: 'app-split',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SafePipe],
   templateUrl: './split.component.html',
   styleUrls: ['./split.component.scss'],
 })
