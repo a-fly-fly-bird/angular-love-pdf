@@ -1,0 +1,18 @@
+<!-- pdf-organizer.component.html -->
+<div
+  ng2FileDrop
+  [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+  (fileOver)="fileOverBase($event)"
+  (onFileDrop)="onFileDrop($event)"
+  [uploader]="uploader"
+  class="well my-drop-zone"
+>
+  Drag and drop PDF files here
+</div>
+
+<div *ngFor="let pdfPreview of pdfPreviews; let i = index" cdkDrag>
+  <img [src]="pdfPreview" class="pdf-thumbnail" />
+  <span>{{ "PDF " + (i + 1) }}</span>
+</div>
+
+<button (click)="downloadCombinedPDF()">Download Combined PDF</button>

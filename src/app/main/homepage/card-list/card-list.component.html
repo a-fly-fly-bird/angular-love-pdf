@@ -32,4 +32,20 @@
       <a routerLink="./kits/split">More</a>
     </ng-template>
   </ng-container>
+
+  <ng-container>
+    <nz-card
+      class="card"
+      nzTitle="Organize Pdf"
+      [nzExtra]="extraOrganizeTemplate"
+    >
+      <p>
+        Sort, add and delete PDF pages. Drag and drop the page thumbnails and
+        sort them in our PDF organizer.
+      </p>
+    </nz-card>
+    <ng-template #extraOrganizeTemplate>
+      <a routerLink="./kits/organize">More</a>
+    </ng-template>
+  </ng-container>
 </div>

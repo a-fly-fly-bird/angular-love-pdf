@@ -13,4 +13,12 @@ export const KitsROUTES: Route[] = [
     loadComponent: () =>
       import('./split/split.component').then((mod) => mod.SplitComponent),
   },
+  {
+    path: 'organize',
+    pathMatch: 'full',
+    loadComponent: () =>
+      import('./organize/organize.component').then(
+        (mod) => mod.OrganizeComponent,
+      ),
+  },
 ];

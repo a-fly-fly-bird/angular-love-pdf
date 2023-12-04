@@ -1,0 +1,18 @@
+/* pdf-organizer.component.css */
+.my-drop-zone {
+  border: dashed 3px lightgray;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  padding-top: 35px;
+}
+
+.nv-file-over {
+  border-color: #f00;
+}
+
+.pdf-thumbnail {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+}

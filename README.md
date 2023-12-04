@@ -18,3 +18,4 @@
 - https://medium.com/@paulisache/how-to-display-a-pdf-in-an-iframe-using-filereader-api-5b0ed9239402
 
 https://github.com/Hopding/pdf-lib/issues/252
+https://github.com/valor-software/ng2-file-upload#readme
